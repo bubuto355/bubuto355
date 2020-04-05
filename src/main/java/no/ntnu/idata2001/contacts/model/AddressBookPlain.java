@@ -1,6 +1,5 @@
 package no.ntnu.idata2001.contacts.model;
 
-import java.io.Serializable;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.TreeMap;
@@ -15,7 +14,7 @@ import java.util.TreeMap;
  * @author David J. Barnes and Michael Kölling and Arne Styve
  * @version 2020.03.16
  */
-public class AddressBook implements Serializable, Iterable<ContactDetails> {
+public class AddressBookPlain implements AddressBook {
   // Storage for an arbitrary number of details.
   // We have chosen to use TreeMap instead of HashMap in this example, the
   // main difference being that a TreeMap is sorted. That is, the keys are sorted,
@@ -29,7 +28,7 @@ public class AddressBook implements Serializable, Iterable<ContactDetails> {
   /**
    * Creates an instance of the AddressBook, initialising the instance.
    */
-  public AddressBook() {
+  public AddressBookPlain() {
     book = new TreeMap<>();
   }
 
@@ -38,6 +37,7 @@ public class AddressBook implements Serializable, Iterable<ContactDetails> {
    *
    * @param contact The contact to be added.
    */
+  @Override
   public void addContact(ContactDetails contact) {
     if (contact != null) {
       book.put(contact.getPhone(), contact);
@@ -50,6 +50,7 @@ public class AddressBook implements Serializable, Iterable<ContactDetails> {
    *
    * @param phoneNumber The phone number to the contact to remove
    */
+  @Override
   public void removeContact(String phoneNumber) {
       this.book.remove(phoneNumber);
   }
@@ -59,6 +60,7 @@ public class AddressBook implements Serializable, Iterable<ContactDetails> {
    *
    * @return all the contacts as a collection.
    */
+  @Override
   public Collection<ContactDetails> getAllContacts() {
     return this.book.values();
   }

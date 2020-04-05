@@ -15,6 +15,10 @@ public class ContactDetails implements Comparable<ContactDetails>, Serializable 
   private String phone;
   private String address;
 
+
+  public ContactDetails() {
+  }
+
   /**
    * Set up the contact details. All details are trimmed to remove
    * trailing white space.
@@ -122,6 +126,8 @@ public class ContactDetails implements Comparable<ContactDetails>, Serializable 
     }
     this.address = address;
   }
+
+
 
   /**
    * Test for content equality between two objects.
