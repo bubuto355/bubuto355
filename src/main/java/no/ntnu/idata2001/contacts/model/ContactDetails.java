@@ -3,6 +3,7 @@ package no.ntnu.idata2001.contacts.model;
 
 
 import javax.persistence.*;
+
 import java.io.Serializable;
 
 /**

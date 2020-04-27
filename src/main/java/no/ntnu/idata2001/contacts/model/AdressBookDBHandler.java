@@ -1,13 +1,8 @@
 package no.ntnu.idata2001.contacts.model;
 
 
+import javax.persistence.*;
 import org.eclipse.persistence.config.TargetServer;
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.persistence.Query;
-
 import static org.eclipse.persistence.config.PersistenceUnitProperties.*;
 
 import java.util.Collection;
