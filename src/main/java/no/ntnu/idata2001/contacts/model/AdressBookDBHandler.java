@@ -21,7 +21,7 @@ public class AdressBookDBHandler implements AddressBook {
 
     public AdressBookDBHandler() {
         try{
-            emf = Persistence.createEntityManagerFactory("contacts-pu");
+            emf = Persistence.createEntityManagerFactory("contacts-pu-hestnesemonkey");
             em = emf.createEntityManager();
         }catch (Exception e){
             e.printStackTrace();
