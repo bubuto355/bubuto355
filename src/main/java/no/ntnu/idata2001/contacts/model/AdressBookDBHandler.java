@@ -53,7 +53,7 @@ public class AdressBookDBHandler implements AddressBook {
 
     @Override
     public Collection<ContactDetails> getAllContacts() {
-        Query q = em.createQuery("SELECT '*' FROM ContactDetails");
+        Query q = em.createQuery("SELECT a FROM ContactDetails a" );
         return q.getResultList();
     }
 

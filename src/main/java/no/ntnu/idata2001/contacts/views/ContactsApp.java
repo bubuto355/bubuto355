@@ -83,7 +83,11 @@ public class ContactsApp extends Application {
     // Place the StatusBar at the bottom
     root.setBottom(createStatusBar());
     // Place the table view in the centre
-    this.contactDetailsTableView = this.createCentreContent();
+    try {
+      this.contactDetailsTableView = this.createCentreContent();
+    }catch (Exception e) {
+      e.printStackTrace();
+    }
     root.setCenter(this.contactDetailsTableView);
 
     // Create the scene, adding the rootNode and setting the default size
@@ -106,7 +110,7 @@ public class ContactsApp extends Application {
   @Override
   public void stop() {
     // Save the address book to file
-    this.mainController.saveAddressBookToFile(this.addressBook);
+    //this.mainController.saveAddressBookToFile(this.addressBook);
     // Exit the application
     System.exit(0);
   }
