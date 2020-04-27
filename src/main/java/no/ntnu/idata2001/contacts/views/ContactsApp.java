@@ -25,6 +25,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import no.ntnu.idata2001.contacts.controllers.MainController;
 import no.ntnu.idata2001.contacts.model.AddressBook;
+import no.ntnu.idata2001.contacts.model.AdressBookDBHandler;
 import no.ntnu.idata2001.contacts.model.ContactDetails;
 
 /**
@@ -61,7 +62,7 @@ public class ContactsApp extends Application {
     this.mainController = new MainController();
 
     // Initialise the Address Book from a file
-    this.addressBook = this.mainController.loadAddressBookFromFile();
+    this.addressBook = new AdressBookDBHandler();
   }
 
   @Override
@@ -205,14 +206,14 @@ public class ContactsApp extends Application {
     //Set the icon/graphic for the ToolBar Buttons.
     addContactBtn.setGraphic(
         new ImageView(
-          new Image(getClass().getResource("./icons/add_contact@2x.png").toExternalForm())));
+          new Image(getClass().getResource("/icons/add_contact@2x.png").toExternalForm())));
 
     addContactBtn.setOnAction(actionEvent -> mainController.addContact(this.addressBook, this));
 
     // Add the edit contact-button in the toolbar
     Button editContactBtn = new Button();
     editContactBtn.setGraphic(new ImageView(
-        new Image(getClass().getResource("./icons/edit_contact@2x.png").toExternalForm())));
+        new Image(getClass().getResource("/icons/edit_contact@2x.png").toExternalForm())));
 
     editContactBtn.setOnAction(event ->
         mainController.editContact(
@@ -221,7 +222,7 @@ public class ContactsApp extends Application {
     // Add the delete contact-button in the tool bar
     Button deleteContactBtn = new Button();
     deleteContactBtn.setGraphic(new ImageView(
-        new Image(getClass().getResource("./icons/remove_contact@2x.png").toExternalForm())));
+        new Image(getClass().getResource("/icons/remove_contact@2x.png").toExternalForm())));
 
     deleteContactBtn.setOnAction(event ->
         mainController.deleteContact(
@@ -276,7 +277,10 @@ public class ContactsApp extends Application {
 
 
     // Add contact
-    Image addContactIcon = new Image(getClass().getResourceAsStream("./icons/add_contact@2x.png"));
+    Image addContactIcon = null;
+    addContactIcon = new Image(getClass().getResourceAsStream("/icons/add_contact@2x.png"));
+
+
     ImageView addContactView = new ImageView(addContactIcon);
     addContactView.setFitWidth(15);
     addContactView.setFitHeight(15);
@@ -291,7 +295,7 @@ public class ContactsApp extends Application {
 
     // Edit contact
     Image editContactIcon =
-        new Image(getClass().getResourceAsStream("./icons/edit_contact@2x.png"));
+        new Image(getClass().getResourceAsStream("/icons/edit_contact@2x.png"));
     ImageView editContactView = new ImageView(editContactIcon);
     editContactView.setFitWidth(15);
     editContactView.setFitHeight(15);
@@ -307,7 +311,7 @@ public class ContactsApp extends Application {
 
     // Remove contact
     Image removeContactIcon =
-        new Image(getClass().getResourceAsStream("./icons/remove_contact@2x.png"));
+        new Image(getClass().getResourceAsStream("/icons/remove_contact@2x.png"));
     ImageView removeContactView = new ImageView(removeContactIcon);
     removeContactView.setFitWidth(15);
     removeContactView.setFitHeight(15);

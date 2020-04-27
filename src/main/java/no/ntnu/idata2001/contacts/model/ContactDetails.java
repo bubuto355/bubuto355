@@ -1,5 +1,8 @@
 package no.ntnu.idata2001.contacts.model;
 
+
+
+import javax.persistence.*;
 import java.io.Serializable;
 
 /**
@@ -10,9 +13,19 @@ import java.io.Serializable;
  * @author David J. Barnes and Michael Kölling and Arne Styve
  * @version 2020.03.16
  */
+@Entity
+
+
 public class ContactDetails implements Comparable<ContactDetails>, Serializable {
+
+
+
+  @Column
   private String name;
+  @Column
+  @Id
   private String phone;
+  @Column
   private String address;
 
 
